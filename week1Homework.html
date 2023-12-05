@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>WEEK 1 HOMEWORK</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <a href="https://www.shecodes.io/" target="_blank">
+          <img
+            src="./images/sheCodesLogo.png"
+            alt="she codes logo"
+            width="150px"
+          />
+        </a>
+        <form id="weather-form">
+          <input
+            type="search"
+            placeholder="Enter your city.."
+            required
+            id="location-input"
+            value=" "
+          />
+          <input type="submit" value="Search" />
+        </form>
+      </header>
+      <hr />
+
+      <section>
+        <div class="weather-information">
+          <div class="current-location">
+            <h3 id="current-city">Nairobi</h3>
+            <p>
+              <span id="current-time"> Sunday 10:32, </span>
+              <span id="current-condition">broken clouds</span>
+              <br />
+              Humidity: <span id="current-humidity">92</span>%, Wind:
+              <span id="current-wind">1.54</span>km/h
+            </p>
+          </div>
+
+          <div class="current-temperature">
+            ☁️<span id="current-temperature">14</span>
+            °C
+          </div>
+        </div>
+        <!-- 
+        <ul>
+          <li>
+            Sun 🌧️ <br />
+            18° <span>14°</span>
+          </li>
+          <li>
+            Mon 🌧️ <br />
+            17° <span>14°</span>
+          </li>
+          <li>
+            Tue ☀️ <br />
+            15° <span>12°</span>
+          </li>
+          <li>
+            Wed ☀️ <br />
+            17° <span>12°</span>
+          </li>
+          <li>
+            Thu ☁️ <br />
+            15° <span>12°</span>
+          </li>
+        </ul> -->
+      </section>
+
+      <hr />
+
+      <footer>
+        <p>
+          This project was coded by
+          <a target="_blank" href="https://github.com/Lornzyy">Lorna Mungai</a>
+          and is
+          <a target="_blank" href="https://github.com/shecodesio/weather"
+            >open sourced on Github</a
+          >
+          and
+          <a target="_blank" href="https://shecodes-weather.netlify.app/"
+            >hosted on Netlify</a
+          >
+        </p>
+      </footer>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
+
+<!-- 
+  https://api.shecodes.io/weather/v1/current?query=Kisumu&key=o63c6afa36060dtb755bc2adb841329a&units=metric 
+-->

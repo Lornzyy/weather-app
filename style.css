@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: white;
+}
+
+.wrapper {
+  border: 1px solid red;
+  background: #f9f7fe;
+  line-height: 2em;
+  border-radius: 15px;
+  margin: 20px;
+  padding: 20px;
+  max-width: 650px;
+  display: block;
+  margin: 20px auto;
+}
+
+header a {
+  cursor: pointer;
+  width: 150px;
+  display: block;
+}
+
+header img {
+  display: block;
+}
+
+form {
+  display: flex;
+  gap: 1em;
+  margin: 10px;
+}
+
+header input[type="search"] {
+  width: 80%;
+  padding: 15px;
+  border-radius: 10px;
+  border: transparent;
+  outline: transparent;
+  color: rgb(65, 61, 61);
+  background-color: rgb(238, 232, 237);
+}
+
+header input[type="search"]:hover {
+  border: 3px solid rgb(121, 121, 170);
+  outline: none;
+  background-color: rgb(250, 242, 248);
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+header input[type="submit"] {
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+  width: 20%;
+  height: 50px;
+  background: rgb(222, 157, 222);
+}
+
+header input[type="submit"]:hover {
+  box-shadow: 2px 5px 5px grey;
+  border: 1px solid rgb(129, 129, 170);
+  background-color: rgb(223, 184, 223);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+hr {
+  width: 90%;
+  margin: 15px auto;
+}
+
+.weather-information {
+  background-color: #f9f7fe;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: "Roboto", sans-serif;
+}
+
+.current-location h3 {
+  font-size: 40px;
+  margin: 10px 0;
+}
+
+p {
+  color: rgb(159, 158, 158);
+  font-family: "Roboto", sans-serif;
+
+}
+
+.current-temperature {
+  font-size: 24px;
+  font-weight: 800;
+  height: 100px;
+  font-size: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
