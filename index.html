@@ -7,24 +7,20 @@
     <title>WEATHER APP!!</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   </head>
   <body>
     <div class="wrapper">
       <header>
-        <!-- <a href="https://www.shecodes.io/" target="_blank">
-          <img
-            src="./images/sheCodesLogo.png"
-            alt="she codes logo"
-            width="150px"
-          />
-        </a> -->
+        </a>
         <form id="weather-form">
           <input
             type="search"
             placeholder="Enter your city..."
             required
             id="location-input"
-            value=" "
+            value=""
           />
           <input type="submit" value="Search" />
         </form>
@@ -34,48 +30,38 @@
       <section>
         <div class="weather-information">
           <div class="current-location">
-            <h3 id="current-city">Nairobi</h3>
-            <p>
-              <span id="current-time"> Sunday 10:32, </span>
-              <span id="current-condition">broken clouds</span>
-              <br />
-              Humidity: <span id="current-humidity">92</span>%, Wind:
-              <span id="current-wind">1.54</span>km/h
-            </p>
+            
+            <h3 id="current-city"><span class="material-symbols-outlined">location_on</span>Nairobi</h3>
+            <span id="current-time"> Sunday 10:32, </span>
+          <div class="current-temperature">
+            <span class="material-symbols-outlined">rainy</span>
+            <span id="current-temperature">14</span>
+            °C
+            <span id="current-condition">broken clouds</span>
+
+          </div>
+            <span id="current-time"> 6 December, 2023</span>
+
           </div>
 
-          <div class="current-temperature">
-            ☁️<span id="current-temperature">14</span>
-            °C
-          </div>
+          
         </div>
-        <!-- 
-        <ul>
-          <li>
-            Sun 🌧️ <br />
-            18° <span>14°</span>
-          </li>
-          <li>
-            Mon 🌧️ <br />
-            17° <span>14°</span>
-          </li>
-          <li>
-            Tue ☀️ <br />
-            15° <span>12°</span>
-          </li>
-          <li>
-            Wed ☀️ <br />
-            17° <span>12°</span>
-          </li>
-          <li>
-            Thu ☁️ <br />
-            15° <span>12°</span>
-          </li>
-        </ul> -->
+      
       </section>
 
-      <hr />
 
+     <section>
+      <div id="additional--information">
+      <div id="humidity--container">
+        <p>Humidity <span id="current-humidity">92</span>%, </p>
+      </div>
+      <div id="wind--container">
+        <p> Wind:<span id="current-wind">1.54</span>km/h</p>
+      </div>
+     </div>
+
+    </div>
+     </section>
       <footer>
         <p>
           This project was coded by
@@ -90,7 +76,7 @@
           >
         </p>
       </footer>
-    </div>
+    
     <script src="/index.js"></script>
   </body>
 </html>

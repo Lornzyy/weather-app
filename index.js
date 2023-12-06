@@ -32,7 +32,7 @@ function displayCity(event) {
 
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${locationInputEl.value}&key=${apiKey}`;
 
-  // https://api.shecodes.io/weather/v1/current?query=${cityValue}&key=${apiKey}&units=metric`
+  // https://api.shecodes.io/weather/v1/current?query=Nairobi&key=o63c6afa36060dtb755bc2adb841329a&units=metric`
   https: axios.get(apiUrl).then(displayTemperature);
 }
 
