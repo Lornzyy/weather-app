@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>WEATHER APP!!</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="src/style.css" />
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
   </head>
   <body>
     <div class="wrapper">
       <header>
-        </a>
         <form id="weather-form">
           <input
             type="search"
@@ -30,53 +35,49 @@
       <section>
         <div class="weather-information">
           <div class="current-location">
-            
-            <h3 id="current-city"><span class="material-symbols-outlined">location_on</span>Nairobi</h3>
-            <span id="current-time"> Sunday 10:32, </span>
+            <h3 id="current-city">📍Nairobi</h3>
+            <span id="current-time"> 10:32 AM</span>
+          </div>
+
           <div class="current-temperature">
-            <span class="material-symbols-outlined">rainy</span>
-            <span id="current-temperature">14</span>
-            °C
-            <span id="current-condition">broken clouds</span>
-
+            <span id="current-temperature" class="temperature--info"
+              >🌧️ 14°C</span
+            >
+            <span id="current-condition">cloudy</span>
           </div>
-            <span id="current-time"> 6 December, 2023</span>
-
-          </div>
-
-          
+          <span id="current-date"> <em>6 December, 2023</em></span>
         </div>
-      
       </section>
 
+      <section>
+        <div class="weather-information">
+          <p>
+            <span class="wind--icon">💧</span>
+            Humidity <span id="current-humidity"></span>%
+          </p>
 
-     <section>
-      <div id="additional--information">
-      <div id="humidity--container">
-        <p>Humidity <span id="current-humidity">92</span>%, </p>
-      </div>
-      <div id="wind--container">
-        <p> Wind:<span id="current-wind">1.54</span>km/h</p>
-      </div>
-     </div>
-
+          <p>
+            <span class="wind--icon">💨</span>
+            Wind:<span id="current-wind"></span>km/h
+          </p>
+        </div>
+      </section>
     </div>
-     </section>
-      <footer>
-        <p>
-          This project was coded by
-          <a target="_blank" href="https://github.com/Lornzyy">Lorna Mungai</a>
-          and is
-          <a target="_blank" href="https://github.com/shecodesio/weather"
-            >open sourced on Github</a
-          >
-          and
-          <a target="_blank" href="https://shecodes-weather.netlify.app/"
-            >hosted on Netlify</a
-          >
-        </p>
-      </footer>
-    
+    <footer>
+      <p>
+        This project was coded by
+        <a target="_blank" href="https://github.com/Lornzyy">Lorna Mungai</a>
+        and is
+        <a target="_blank" href="https://github.com/shecodesio/weather"
+          >open sourced on Github</a
+        >
+        and
+        <a target="_blank" href="https://shecodes-weather.netlify.app/"
+          >hosted on Netlify</a
+        >
+      </p>
+    </footer>
+
     <script src="/index.js"></script>
   </body>
 </html>
