@@ -126,12 +126,13 @@ p {
   color: #c6b9e4;
 }
 
-.weather-information p, footer {
+.weather-information p,
+footer {
   color: black;
   text-align: center;
 }
 
-
-#current-humidity, #current-wind {
+#current-humidity,
+#current-wind {
   color: red;
 }

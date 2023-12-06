@@ -25,7 +25,7 @@ function displayTemperature(res) {
 
 //Include the city name in the weather application
 
-function searchCity(city){
+function searchCity(city) {
   let apiKey = "o63c6afa36060dtb755bc2adb841329a";
 
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
@@ -37,13 +37,12 @@ function searchCity(city){
 function displayCity(event) {
   event.preventDefault();
   // console.log(locationInputEl.value);
-  searchCity(locationInputEl.value)
+  searchCity(locationInputEl.value);
 }
 
 weatherForm.addEventListener("submit", displayCity);
 
 searchCity("Nairobi");
-
 
 //Changing the date and time on the weather application
 
@@ -74,12 +73,11 @@ if (minutes < 10) {
   minutes;
 }
 
-if (hour > 12){
-  minutes += `PM`
+if (hour > 12) {
+  minutes += `PM`;
 } else {
-  minutes += `AM`
+  minutes += `AM`;
 }
 
 currentTimeEl.innerHTML = `${hour}:${minutes}`;
 currentDateEl.innerHTML = `${currentDate} ${month}, ${year}`;
-
