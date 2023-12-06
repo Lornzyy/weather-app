@@ -1,5 +1,6 @@
 let currentCityEl = document.querySelector("#current-city");
 let currentTimeEl = document.querySelector("#current-time");
+let currentDateEl = document.querySelector("#current-date");
 let locationInputEl = document.querySelector("#location-input");
 let weatherForm = document.querySelector("#weather-form");
 let currentTempEl = document.querySelector("#current-temperature");
@@ -9,51 +10,63 @@ let currentConditionEl = document.querySelector("#current-condition");
 
 function displayTemperature(res) {
   currentConditionEl.innerHTML = res.data.condition.description;
-  currentCityEl.innerHTML = locationInputEl.value;
+  currentCityEl.innerHTML = `📍${res.data.city}`;
   let temp = Math.floor(res.data.temperature.current);
-  currentTempEl.innerHTML = temp;
+  currentTempEl.innerHTML = `🌧️ ${temp}°C`;
 
   let humidity = res.data.temperature.humidity;
   let humidityEl = document.querySelector("#current-humidity");
-  humidityEl.innerHTML = `${humidity}`;
+  humidityEl.innerHTML = `${humidity}%`;
 
   let wind = res.data.wind.speed;
   let windEl = document.querySelector("#current-wind");
-  windEl.innerHTML = `${wind}`;
+  windEl.innerHTML = `${wind}km/h`;
 }
 
 //Include the city name in the weather application
 
-function displayCity(event) {
-  event.preventDefault();
-  currentCityEl.innerHTML = locationInputEl.value;
-  // console.log(locationInputEl.value);
+function searchCity(city){
   let apiKey = "o63c6afa36060dtb755bc2adb841329a";
 
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${locationInputEl.value}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
 
   // https://api.shecodes.io/weather/v1/current?query=Nairobi&key=o63c6afa36060dtb755bc2adb841329a&units=metric`
   https: axios.get(apiUrl).then(displayTemperature);
 }
 
+function displayCity(event) {
+  event.preventDefault();
+  // console.log(locationInputEl.value);
+  searchCity(locationInputEl.value)
+}
+
 weatherForm.addEventListener("submit", displayCity);
+
+searchCity("Nairobi");
+
 
 //Changing the date and time on the weather application
 
 let date = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
+let months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
-
-let day = days[date.getDay()];
-let time = date.getHours();
+let hour = date.getHours();
 let minutes = date.getMinutes();
+let year = date.getFullYear();
+let month = months[date.getMonth()];
+let currentDate = date.getDate();
 
 if (minutes < 10) {
   minutes = `0${minutes}`;
@@ -61,4 +74,12 @@ if (minutes < 10) {
   minutes;
 }
 
-currentTimeEl.innerHTML = `${day} ${time}:${minutes}`;
+if (hour > 12){
+  minutes += `PM`
+} else {
+  minutes += `AM`
+}
+
+currentTimeEl.innerHTML = `${hour}:${minutes}`;
+currentDateEl.innerHTML = `${currentDate} ${month}, ${year}`;
+

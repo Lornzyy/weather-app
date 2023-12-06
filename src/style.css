@@ -79,7 +79,7 @@ hr {
   background: #9b89c3;
   border-radius: 20px;
   padding: 10px;
-  max-width: 250px;
+  max-width: 300px;
   display: block;
   margin: 10px auto;
 }
@@ -129,4 +129,9 @@ p {
 .weather-information p, footer {
   color: black;
   text-align: center;
+}
+
+
+#current-humidity, #current-wind {
+  color: red;
 }
