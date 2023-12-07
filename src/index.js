@@ -1,4 +1,5 @@
 let currentCityEl = document.querySelector("#current-city");
+let currentCountryEl = document.querySelector("#current-country");
 let currentTimeEl = document.querySelector("#current-time");
 let currentDateEl = document.querySelector("#current-date");
 let locationInputEl = document.querySelector("#location-input");
@@ -9,18 +10,22 @@ let currentConditionEl = document.querySelector("#current-condition");
 ///Use API to call data to the weather application
 
 function displayTemperature(res) {
-  currentConditionEl.innerHTML = res.data.condition.description;
+  
+  // console.log(res.data.country);
+  currentCountryEl.innerHTML = res.data.country;
   currentCityEl.innerHTML = `📍${res.data.city}`;
   let temp = Math.floor(res.data.temperature.current);
   currentTempEl.innerHTML = `🌧️ ${temp}°C`;
 
+  currentConditionEl.innerHTML = res.data.condition.description;
+
   let humidity = res.data.temperature.humidity;
   let humidityEl = document.querySelector("#current-humidity");
-  humidityEl.innerHTML = `${humidity}%`;
+  humidityEl.innerHTML = `${humidity} %`;
 
   let wind = res.data.wind.speed;
   let windEl = document.querySelector("#current-wind");
-  windEl.innerHTML = `${wind}km/h`;
+  windEl.innerHTML = `${wind} km/h`;
 }
 
 //Include the city name in the weather application
