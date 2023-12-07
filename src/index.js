@@ -72,16 +72,20 @@ let year = date.getFullYear();
 let month = months[date.getMonth()];
 let currentDate = date.getDate();
 
+console.log(`${hour} ${minutes}`)
+
 if (minutes < 10) {
   minutes = `0${minutes}`;
 } else {
   minutes;
 }
 
-if (hour > 12) {
-  minutes += `PM`;
+// var ampm = hour >= 12 ? "pm" : "am";
+
+if (hour >= 12) {
+  minutes += ` PM`;
 } else {
-  minutes += `AM`;
+  minutes += ` AM`;
 }
 
 currentTimeEl.innerHTML = `${hour}:${minutes}`;

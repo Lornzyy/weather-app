@@ -46,11 +46,10 @@ header input[type="search"] {
 }
 
 header input[type="search"]:hover {
-  border: 3px solid rgb(121, 121, 170);
   outline: none;
   background-color: rgb(250, 242, 248);
   color: rgb(199, 128, 128);
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  transition: background-color 0.001s ease-in-out, border-color 0.15s ease-in-out;
 }
 
 header input[type="submit"] {
