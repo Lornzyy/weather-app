@@ -7,25 +7,42 @@ let weatherForm = document.querySelector("#weather-form");
 let currentTempEl = document.querySelector("#current-temperature");
 let currentConditionEl = document.querySelector("#current-condition");
 
+
 ///Use API to call data to the weather application
 
 function displayTemperature(res) {
   
   // console.log(res.data.country);
-  currentCountryEl.innerHTML = res.data.country;
-  currentCityEl.innerHTML = `📍${res.data.city}`;
-  let temp = Math.floor(res.data.temperature.current);
-  currentTempEl.innerHTML = `🌧️ ${temp}°C`;
-
-  currentConditionEl.innerHTML = res.data.condition.description;
-
-  let humidity = res.data.temperature.humidity;
   let humidityEl = document.querySelector("#current-humidity");
-  humidityEl.innerHTML = `${humidity} %`;
-
-  let wind = res.data.wind.speed;
   let windEl = document.querySelector("#current-wind");
-  windEl.innerHTML = `${wind} km/h`;
+
+ 
+
+  if (!res.data.city){
+    currentCountryEl.innerHTML = "";
+    currentCityEl.innerHTML = "📍Not found";
+
+    currentTempEl.innerHTML = ``;
+
+    currentConditionEl.innerHTML = ""
+
+    humidityEl.innerHTML = "";
+    windEl.innerHTML = "";
+
+  } else{
+    currentCountryEl.innerHTML = res.data.country;
+    currentCityEl.innerHTML = `📍${res.data.city}`;
+    let temp = Math.floor(res.data.temperature.current);
+    currentTempEl.innerHTML = `🌧️ ${temp}°C`;
+
+    currentConditionEl.innerHTML = res.data.condition.description;
+
+    let humidity = res.data.temperature.humidity;
+    humidityEl.innerHTML = `${humidity} %`;
+
+    let wind = res.data.wind.speed;
+    windEl.innerHTML = `${wind} km/h`;
+  }
 }
 
 //Include the city name in the weather application
