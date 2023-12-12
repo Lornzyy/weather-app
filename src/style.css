@@ -8,10 +8,18 @@ body {
   background: rgb(232, 167, 167);
 }
 
+.container {
+  border: 1px solid red;
+  color: wheat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .wrapper {
   max-width: 350px;
   background: #c7bbdd;
-  line-height: 2em;
+  line-height: 1.8em;
   border-radius: 15px;
   margin: 20px;
   padding: 20px;
@@ -49,7 +57,8 @@ header input[type="search"]:hover {
   outline: none;
   background-color: rgb(250, 242, 248);
   color: rgb(199, 128, 128);
-  transition: background-color 0.001s ease-in-out, border-color 0.15s ease-in-out;
+  transition: background-color 0.001s ease-in-out,
+    border-color 0.15s ease-in-out;
 }
 
 header input[type="submit"] {
@@ -80,10 +89,10 @@ hr {
   display: block;
   margin: 10px auto;
 }
- h1 {
+h1 {
   text-align: center;
   color: red;
- }
+}
 .current-location {
   display: flex;
   justify-content: space-between;
@@ -119,6 +128,21 @@ p {
   align-items: center;
 }
 
+#current-condition{
+  font-size: medium;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: #bca261;
+  font-weight: 600;
+}
+
+#current-temperature-icon{
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+}
+
 #current-date {
   text-align: center;
   display: block;
@@ -127,7 +151,7 @@ p {
 }
 
 .weather-information p,
-footer p{
+footer p {
   color: rgb(73, 69, 69);
   text-align: center;
 }

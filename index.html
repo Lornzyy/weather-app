@@ -18,7 +18,8 @@
     />
   </head>
   <body>
-    <div class="wrapper">
+    <div class="container">
+      <div class="wrapper">
       <header>
         <form id="weather-form">
           <input
@@ -42,8 +43,14 @@
           </div>
 
           <div class="current-temperature">
-            <span id="current-temperature" class="temperature--info">🌧️</span>
-            <span id="current-condition"></span>
+            <div class="current-temperature">
+              <img id="current-temperature-icon" src="" alt="">
+              <p id="current-temperature" class="temperature--info"></p>
+            </div>
+            <div class="current-temperature">
+              <p id="current-condition"></p>
+            </div>
+            
           </div>
           <span id="current-date"> <em></em></span>
         </div>
@@ -62,6 +69,16 @@
 
         </div>
       </section>
+    </div>
+
+    <div class="wrapper second--div">
+      <h2 id="forecast-location">Weekly forecast of </h2>
+      <div class="weather-information" id="weather-forecast">
+        <p>Thu</p>
+        <img />
+        <p><span class="max-temperature-forecast">17/</span><span class="min-temperature-forecast">13</span></p>
+      </div>
+    </div>
     </div>
     <footer>
       <p>
