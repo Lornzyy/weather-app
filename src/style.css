@@ -7,13 +7,13 @@
 body {
   background: rgb(232, 167, 167);
 }
-
+/* 
 .container {
   color: wheat;
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
+} */
 
 .wrapper {
   max-width: 350px;
