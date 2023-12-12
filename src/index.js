@@ -42,7 +42,12 @@ function displayTemperature(res) {
 
     let wind = res.data.wind.speed;
     windEl.innerHTML = `${wind} km/h`;
+
+
   }
+  let date = res.data.time * 1000
+  currentTimeEl.innerHTML = formatDate(date);
+
   getForecast(res.data.city);
 }
 
@@ -70,49 +75,57 @@ searchCity("Nairobi");
 
 //Changing the date and time on the weather application
 
-let date = new Date();
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-let hour = date.getHours();
-let minutes = date.getMinutes();
-let year = date.getFullYear();
-let month = months[date.getMonth()];
-let currentDate = date.getDate();
+function formatDate(){
+  let date = new Date();
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let hour = date.getHours();
+  let minutes = date.getMinutes();
+  let year = date.getFullYear();
+  let month = months[date.getMonth()];
+  let currentDate = date.getDate();
 
-console.log(`${hour} ${minutes}`);
+  console.log(`${hour} ${minutes}`);
 
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-} else {
-  minutes;
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  } else {
+    minutes;
+  }
+
+  // var ampm = hour >= 12 ? "pm" : "am";
+
+  if (hour >= 12) {
+    minutes += ` PM`;
+  } else {
+    minutes += ` AM`;
+  }
+  let longFormatDate = `${currentDate} ${month}, ${year}`;
+  let shortFormatDate = `${hour}:${minutes}`;
+
+  currentDateEl.innerHTML = longFormatDate
+
+  return shortFormatDate;
 }
 
-// var ampm = hour >= 12 ? "pm" : "am";
-
-if (hour >= 12) {
-  minutes += ` PM`;
-} else {
-  minutes += ` AM`;
-}
-
-currentTimeEl.innerHTML = `${hour}:${minutes}`;
-currentDateEl.innerHTML = `${currentDate} ${month}, ${year}`;
 
 setInterval(function () {
-  date;
+  formatDate();
 }, 60000);
+
+
 
 
 function getForecast(city) {
@@ -122,42 +135,44 @@ function getForecast(city) {
   axios.get(forecastApiUrl).then(displayForecast);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[date.getDay()];
+
+  return day;
+
+}
 
 function displayForecast(res) {
   let response = res.data.daily;
   console.log(response);
+
+  console.log(response.time * 1000);
   let forecastHtml = document.querySelector("#weather-forecast");
-
-
-  let date = new Date();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  let day = days[date.getDay()];
 
   let forecast = "";
 
   let forecastLocationEl = document.querySelector("#forecast-location");
   forecastLocationEl.innerHTML = `${res.data.city} Weekly Forecast`;
 
-  response.forEach(function (day) {
-     forecast += `
+  response.forEach(function (day, index) {
+    if (index < 5) {
+      forecast += `
       <div class="daily-weather-forecast">
-        <p>${day.time}</p>
-        <img src=${day.condition.icon_url}/>
+        <p class="forecast--day">${formatDay(day.time)}</p>
+        <img class="forecast--icon" src="${day.condition.icon_url}"/>
         <p>
           <span class="max-temperature-forecast">${Math.floor(
             day.temperature.maximum
-          )}</span>
+          )} /</span>
           <span class="min-temperature-forecast">${Math.floor(
             day.temperature.minimum
           )}</span>
         </p>
       </div>`;
-  })
-
+    }
+  });
 
   forecastHtml.innerHTML = forecast;
-
- 
 }
-
-

@@ -9,10 +9,9 @@ body {
 }
 
 .container {
-  border: 1px solid red;
   color: wheat;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -21,7 +20,6 @@ body {
   background: #c7bbdd;
   line-height: 1.8em;
   border-radius: 15px;
-  margin: 20px;
   padding: 20px;
   display: block;
   margin: 20px auto;
@@ -128,15 +126,15 @@ p {
   align-items: center;
 }
 
-#current-condition{
+#current-condition {
   font-size: medium;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-style: italic;
   color: #bca261;
   font-weight: 600;
 }
 
-#current-temperature-icon{
+#current-temperature-icon {
   width: 50px;
   height: 50px;
   margin: 0;
@@ -165,4 +163,46 @@ footer a {
 #current-humidity,
 #current-wind {
   color: red;
+}
+
+#weather-forecast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 2em;
+  padding: 5px;
+}
+.forecast--day {
+  text-align: center;
+  font-weight: bolder;
+}
+
+.forecast--icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.max-temperature-forecast {
+  text-align: center;
+  color: #f6b30b;
+  font-style: oblique;
+}
+
+.min-temperature-forecast {
+  text-align: center;
+  color: #acd3bd;
+  font-weight: 500;
+  opacity: 0.6;
+}
+
+
+
+
+@media screen and (max-width: 600px){
+  .container {
+    display: block;
+  }
 }
