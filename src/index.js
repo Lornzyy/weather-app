@@ -43,6 +43,7 @@ function displayTemperature(res) {
     let wind = res.data.wind.speed;
     windEl.innerHTML = `${wind} km/h`;
   }
+  getForecast(res.data.city);
 }
 
 //Include the city name in the weather application
@@ -112,3 +113,51 @@ currentDateEl.innerHTML = `${currentDate} ${month}, ${year}`;
 setInterval(function () {
   date;
 }, 60000);
+
+
+function getForecast(city) {
+  let forecastApiKey = "o63c6afa36060dtb755bc2adb841329a";
+  let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${forecastApiKey}&units=metric`;
+
+  axios.get(forecastApiUrl).then(displayForecast);
+}
+
+
+function displayForecast(res) {
+  let response = res.data.daily;
+  console.log(response);
+  let forecastHtml = document.querySelector("#weather-forecast");
+
+
+  let date = new Date();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[date.getDay()];
+
+  let forecast = "";
+
+  let forecastLocationEl = document.querySelector("#forecast-location");
+  forecastLocationEl.innerHTML = `${res.data.city} Weekly Forecast`;
+
+  response.forEach(function (day) {
+     forecast += `
+      <div class="daily-weather-forecast">
+        <p>${day.time}</p>
+        <img src=${day.condition.icon_url}/>
+        <p>
+          <span class="max-temperature-forecast">${Math.floor(
+            day.temperature.maximum
+          )}</span>
+          <span class="min-temperature-forecast">${Math.floor(
+            day.temperature.minimum
+          )}</span>
+        </p>
+      </div>`;
+  })
+
+
+  forecastHtml.innerHTML = forecast;
+
+ 
+}
+
+
